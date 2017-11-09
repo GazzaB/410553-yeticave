@@ -44,12 +44,12 @@ $lot_time_remaining = gmdate("H:i:s", $tomorrow - $now);
         <nav class="user-menu">
             <?php if ($is_auth == true): ?>
                 <div class="user-menu__image">
-                    <img src="<?=$user_avatar ?>" width="40" height="40" alt="Пользователь">
+                    <img src="<?= $user_avatar; ?>" width="40" height="40" alt="Пользователь">
                 </div>
                 <div class="user-menu__logged">
-                    <p><?=$user_name ?></p>
+                    <p><?= $user_name; ?></p>
                 </div>
-                <?php elseif ($is_auth == false): ?>
+            <?php elseif ($is_auth == false): ?>
                 <ul class="user-menu__list">
                     <li class="user-menu__item">
                         <a href="#">Регистрация</a>
@@ -58,8 +58,7 @@ $lot_time_remaining = gmdate("H:i:s", $tomorrow - $now);
                         <a href="#">Вход</a>
                     </li>
                 </ul>
-                <?php endif; ?>
-            <!-- здесь должен быть PHP код для показа аватара пользователя -->
+            <?php endif; ?>
         </nav>
     </div>
 </header>
@@ -109,7 +108,7 @@ $lot_time_remaining = gmdate("H:i:s", $tomorrow - $now);
                             <span class="lot__cost">10 999<b class="rub">р</b></span>
                         </div>
                         <div class="lot__timer timer">
-                            <?= $lot_time_remaining; ?>
+                            <?= $lot_time_remaining = gmdate("H:i", $tomorrow - $now); ?>
                         </div>
                     </div>
                 </div>
