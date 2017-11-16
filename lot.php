@@ -113,14 +113,14 @@ $bets = [
                     $now = strtotime('now');
                     $timeBet = $now - $time;
 
-                    if (floor($timeBet / 60 / 60 / 24) > 1) {
+                    if (floor($timeBet / 60 / 60 / 24) >= 1) {
                         $timeBet = gmdate('d.m.y в H:i', $time);
+                        return $timeBet;
+                    } elseif (floor($timeBet / 60) <= 60) {
+                        $timeBet = gmdate('i минут назад', $time);
                         return $timeBet;
                     } elseif (floor($timeBet / 60) > 60) {
                         $timeBet = gmdate('G часов назад', $time);
-                        return $timeBet;
-                    } elseif (floor($timeBet / 60) < 60) {
-                        $timeBet = gmdate('i минут назад', $time);
                         return $timeBet;
                     };
                 }
