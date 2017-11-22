@@ -3,10 +3,11 @@ require_once('data.php');
 
 function renderTemplate($way, $data)
 {
+    ob_start();
     extract($data);
-    $connect = require_once($way);
-
-    return $connect;
+    require_once($way);
+    $result = ob_get_clean();
+    return $result;
 }
 
 ;

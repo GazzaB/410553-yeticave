@@ -1,24 +1,3 @@
-<?php
-$is_auth = (bool)rand(0, 1);
-
-$user_name = 'Константин';
-$user_avatar = 'img/user.jpg';
-
-// устанавливаем часовой пояс в Московское время
-date_default_timezone_set('Europe/Moscow');
-
-// записать в эту переменную оставшееся время в этом формате (ЧЧ:ММ)
-$lot_time_remaining = "00:00";
-
-// временная метка для полночи следующего дня
-$tomorrow = strtotime('tomorrow midnight');
-
-// временная метка для настоящего времени
-$now = strtotime('now');
-
-// далее нужно вычислить оставшееся время до начала следующих суток и записать его в переменную $lot_time_remaining
-$lot_time_remaining = gmdate("H:i:s", $tomorrow - $now);
-?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -64,10 +43,10 @@ $lot_time_remaining = gmdate("H:i:s", $tomorrow - $now);
 <footer class="main-footer">
     <nav class="nav">
         <ul class="nav__list container">
-            <?php foreach ($categorys as $key => $value): ?>
-            <li class="nav__item">
-                <a href="all-lots.html"><?= $value['title']; ?></a>
-            </li>
+            <?php foreach ($categories as $key => $value): ?>
+                <li class="nav__item">
+                    <a href="all-lots.html"><?= $value['title']; ?></a>
+                </li>
             <?php endforeach; ?>
         </ul>
     </nav>
