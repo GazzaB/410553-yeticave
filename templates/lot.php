@@ -76,6 +76,7 @@
                 </div>
             </section>
         <? else: ?>
+            <p class="title404">Такой страницы не существует</p>
             <?php http_response_code(404); ?>
         <? endif; ?>
     <? endif; ?>
