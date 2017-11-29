@@ -21,22 +21,7 @@
                             <img src="<?= ($lots['url']) ?>" width="730" height="548" alt="Сноуборд">
                         </div>
                         <p class="lot-item__category">Категория: <span><?= ($lots['category']) ?></span></p>
-                        <p class="lot-item__description">Легкий маневренный сноуборд, готовый дать жару в любом парке,
-                            растопив
-                            снег
-                            мощным щелчкоми четкими дугами. Стекловолокно Bi-Ax, уложенное в двух направлениях,
-                            наделяет
-                            этот
-                            снаряд
-                            отличной гибкостью и отзывчивостью, а симметричная геометрия в сочетании с классическим
-                            прогибом
-                            кэмбер
-                            позволит уверенно держать высокие скорости. А если к концу катального дня сил совсем не
-                            останется,
-                            просто
-                            посмотрите на Вашу доску и улыбнитесь, крутая графика от Шона Кливера еще никого не
-                            оставляла
-                            равнодушным.</p>
+                        <p class="lot-item__description"><?= $lots['message'];?></p>
                     </div>
                     <div class="lot-item__right">
                         <div class="lot-item__state">
@@ -46,16 +31,16 @@
                             <div class="lot-item__cost-state">
                                 <div class="lot-item__rate">
                                     <span class="lot-item__amount">Текущая цена</span>
-                                    <span class="lot-item__cost"><?= ($lots['price']) ?></span>
+                                    <span class="lot-item__cost"><?= ($lots['price']); ?></span>
                                 </div>
                                 <div class="lot-item__min-cost">
-                                    Мин. ставка <span>12 000 р</span>
+                                    Мин. ставка <span><?= ($lots['price']+$lots['step']); ?></span>
                                 </div>
                             </div>
                             <form class="lot-item__form" action="https://echo.htmlacademy.ru" method="post">
                                 <p class="lot-item__form-item">
                                     <label for="cost">Ваша ставка</label>
-                                    <input id="cost" type="number" name="cost" placeholder="12 000">
+                                    <input id="cost" type="number" name="cost" placeholder="<?= ($lots['price']+$lots['step']); ?>">
                                 </p>
                                 <button type="submit" class="button">Сделать ставку</button>
                             </form>
@@ -77,6 +62,7 @@
             </section>
         <? else: ?>
             <?php http_response_code(404); ?>
+            <p class="title404">Такой страницы не существует</p>
         <? endif; ?>
     <? endif; ?>
 </main>

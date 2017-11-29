@@ -1234,3 +1234,8 @@ input:invalid .form__error{
 .rates__item--end {
   opacity: 0.4;
 }
+
+.title404 {
+  text-align: center;
+  font-size: 45px;
+}
