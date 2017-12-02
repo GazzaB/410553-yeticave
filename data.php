@@ -1,13 +1,13 @@
 <?php
 $title = 'YetiCave';
-$categories = [
+$categorys = [
     [
         'title' => 'Доски и лыжи',
         'class' => 'promo__item--boards',
     ],
     [
         'title' => 'Крепления',
-        'class' => 'promo__item--attachment',
+        'class' => 'item promo__item--attachment',
     ],
     [
         'title' => 'Ботинки',
