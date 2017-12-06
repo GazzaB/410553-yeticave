@@ -1,38 +1,3 @@
-<?php
-require_once 'functions.php';
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $form = $_POST;
-    $newLot = [];
-//    $error = [];
-
-    foreach ($form as $key => $item) {
-        if ($item != '' and $item != 'Выберите категорию') {
-            if ($key == 'lot-rate' or $key == 'lot-step') {
-                if (ctype_digit($item)) {
-                    $newLot[$key] = esc($item);
-                } else {
-                    $error[$key] = 'number';
-                };
-            } else {
-                $newLot[$key] = esc($item);
-            };
-        } else {
-            $error[$key] = '';
-        };
-    };
-    var_dump($_FILES);
-//    if (isset($_FILES)) {
-//
-//    } else {
-//        $error['file'] = '';
-//    };
-//    var_dump($error);
-//    var_dump($newLot);
-};
-
-
-?>
 <main>
     <nav class="nav">
         <ul class="nav__list container">
@@ -72,16 +37,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                       placeholder="Напишите описание лота"><? if (isset($newLot['message'])): ?><?= $newLot['message']; ?><? endif; ?></textarea>
             <span class="form__error">Напишите описание лота</span>
         </div>
-        <div class="form__item form__item--file"> <!-- form__item--uploaded -->
+        <div class="form__item form__item--file<? if (isset($lotUrl)): ?><?= ' form__item--uploaded'; ?><? endif; ?>">
             <label>Изображение</label>
             <div class="preview">
                 <button class="preview__remove" type="button">x</button>
                 <div class="preview__img">
-                    <img src="img/avatar.jpg" width="113" height="113" alt="Изображение лота">
+                    <img src="<? if (isset($lotUrl)): ?><?= $lotUrl; ?><? endif; ?>" width="113" height="113"
+                         alt="Изображение лота">
                 </div>
             </div>
             <div class="form__input-file">
-                <input class="visually-hidden" type="file" id="photo2" value="">
+                <input class="visually-hidden" type="file" id="photo2" value="" name="lot-img">
                 <label for="photo2">
                     <span>+ Добавить</span>
                 </label>
